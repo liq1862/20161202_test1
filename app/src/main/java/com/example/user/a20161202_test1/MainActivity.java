@@ -1,5 +1,6 @@
 package com.example.user.a20161202_test1;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sp;
     EditText editText;
     TextView tv2;
-    Button writebutton,readbutton;
+    Button writebutton,readbutton,settingbutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         tv2 = (TextView) findViewById(R.id.textView2);
         writebutton = (Button) findViewById(R.id.button);
         readbutton = (Button) findViewById(R.id.button2);
+        settingbutton = (Button) findViewById(R.id.button3);
+
         writebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String str = sp.getString("name", "Default");               //讀取資料
                 tv2.setText(str);
+            }
+        });
+        settingbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(MainActivity.this,SettingsActivity.class);
+                startActivity(it);
             }
         });
     }
