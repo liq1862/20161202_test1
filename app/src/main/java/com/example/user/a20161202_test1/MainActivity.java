@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sp;
     EditText editText;
     TextView tv2;
-    Button writebutton,readbutton,settingbutton;
+    Button writebutton,readbutton,settingbutton,readdisplayname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         writebutton = (Button) findViewById(R.id.button);
         readbutton = (Button) findViewById(R.id.button2);
         settingbutton = (Button) findViewById(R.id.button3);
+        readdisplayname = (Button) findViewById(R.id.button4);
 
         writebutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent it = new Intent(MainActivity.this,SettingsActivity.class);
                 startActivity(it);
+            }
+        });
+        readdisplayname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sp2 = getSharedPreferences(getPackageName() + "_preferences",MODE_PRIVATE);
+                String str = sp2.getString("example_text","DEFAULT");
+                tv2.setText(str);
             }
         });
     }
