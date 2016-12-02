@@ -29,5 +29,11 @@
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
         android:title="@string/pref_title_add_friends_to_messages" />
+    <EditTextPreference
+        android:defaultValue="Default value"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Edit text preference"
+        android:key="edit_text_preference_1" />
 
 </PreferenceScreen>
