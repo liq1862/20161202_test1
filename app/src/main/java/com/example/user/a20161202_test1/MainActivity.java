@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
-        readdisplayname.setOnClickListener(new View.OnClickListener() {
+        readdisplayname.setOnClickListener(new View.OnClickListener() {     //讀取display name
             @Override
             public void onClick(View v) {
                 SharedPreferences sp2 = getSharedPreferences(getPackageName() + "_preferences",MODE_PRIVATE);
